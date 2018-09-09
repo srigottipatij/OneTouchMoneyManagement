@@ -1,0 +1,26 @@
+<div class="form-main">
+    <div class="form-heading">
+        <span class="form-title">Login Form</span>      
+        </div>
+  <form class="login-form" #lgform="ngForm" (ngSubmit)="login(lgform.value)">
+  <div class="login-form-input">
+    <label for="email">Email</label>
+    <div class="login-form-inputs">
+      <span class="fa fa-email" aria-hidden="true"></span>
+      <input ngModel name="email" id="email" type="email" placeholder="Email" required="">
+    </div>
+  </div>
+
+  <div class="login-form-input">
+    <label for="password">Password</label>
+    <div class="login-form-inputs">
+      <span class="fa fa-key" aria-hidden="true"></span>
+      <input ngModel name="password" id="password" type="password" placeholder="Password" required>
+    </div>
+  </div>
+
+  <input type="submit" value="Login">    
+  
+</form>
+</div>
+
