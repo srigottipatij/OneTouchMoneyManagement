@@ -1,1 +1,222 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+
+body{
+    padding-top: 130px;
+    
+}
+.main-hr{
+    background-color: pink; 
+
+   
+}
+.otmm-navbar{
+    background-color:white; /* #edfffc;*/
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: bold;
+    background: transparent;
+    padding-right: 0.8rem;
+    padding-left: 0.8rem;
+    font-size: 15px;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: rgb(255, 87, 133);
+    font-weight: bold;
+    background: transparent;
+    padding-right: 0.8rem;
+    padding-left: 0.8rem;
+    font-size: 15px;
+}
+
+ .show > .nav-link, .navbar-light .navbar-nav .nav-link.show {
+    color: rgba(0, 0, 0, 0.5) !important;
+    font-size: 15px;
+    font-weight: bold;
+    background: transparent;
+   
+    padding-right: 0.8rem;
+    padding-left: 0.8rem;
+}
+
+/*.show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {*/
+ .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.active {
+    color: rgb(255, 87, 133);
+    font-size: 15px;
+    font-weight: bold;
+    padding-right: 0.8rem;
+    padding-left: 0.8rem;
+}
+
+.btn-outline-success {
+    color: rgb(255, 87, 133);    
+    border-color:rgb(255, 87, 133);
+}
+
+.btn-outline-success:hover {
+    color: #fff;
+    background-color:rgb(255, 87, 133);
+    border-color: rgb(255, 87, 133);
+}
+
+.fixed-bottom {
+     position: fixed; 
+    
+}
+
+.form-main {
+    margin-top: 20px;
+    margin-bottom:80px;       
+}
+.form-heading{
+    margin-left: 200px;
+    padding: 7px;
+    border: 1pt solid rgb(255, 87, 133); 
+    border-bottom: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    
+    width: 430px;
+}
+.form-title{
+    background: rgb(255, 87, 133);   
+    border-radius: 5px;
+    text-align: center;         
+    color:#fff;
+    font-size: large;
+    font-weight: bold;               
+    padding: 13.5px;
+    
+    justify-content: space-between;
+    box-sizing: border-box;
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: -moz-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 50%;
+    -webkit-flex-basis: 50%;    
+    
+   
+}
+
+.login-form { /*form-style-agile*/            
+    margin-left: 200px;
+    width: 430px;
+    padding: 8px;
+justify-content: space-between;
+box-sizing: border-box;
+
+border: 1pt solid rgb(255, 87, 133);
+
+
+
+
+}
+
+
+.login-form-input {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.login-form-inputs {
+    padding: 11px 15px;
+    background: #f7f7f7;
+    margin-bottom: 16px;
+    
+    -webkit-justify-content: space-between;
+    justify-content: space-between;    
+    box-sizing: border-box;
+    border: 1px solid #e2004d;
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+/*pom-agile*/
+.login-form-inputs input[type="text"], .login-form-inputs input[type="email"], .login-form-inputs input[type="password"] {
+    outline: none;
+    font-size: 14px;
+    border: none;
+    background: transparent;
+    /*color:#fff;*/
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 1px;
+    flex-basis: 95%;
+    -webkit-flex-basis: 95%;
+}
+
+span.fa {
+    color: #e2004d;
+    line-height: 1.5;
+    flex-basis: 4%;
+    -webkit-flex-basis: 4%;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.fa-user-o:before {
+    content: "\f2c0";
+    padding-right: 5px;
+}
+
+.fa-email:before {
+    content: "\f0e0";
+    padding-right: 5px;
+}
+.fa-key:before {
+    padding-right: 5px;
+}
+
+
+
+
+.container{width: 900px;}
+/* css for money tracker options page starts here */
+
+ #trackOptionsFilter ul li{display:block;height:auto}
+ #trackOptionsFilter ul,#trackOptionsFilter ul li{margin:0;padding:0}
+ #trackOptionsFilter{
+ margin-left: 180px;
+ width:500px;
+background: #f7f7f7;
+justify-content: space-between;
+box-sizing: border-box;
+border: 1px solid rgb(255, 87, 133);
+border-top: 1px solid rgba(0, 0, 0, 0.4);
+}
+ #trackOptionsFilter ul li a{color:rgba(0, 0, 0, 0.5);font-size:14px;letter-spacing:.025em;font-weight:400;text-decoration:none;text-transform:uppercase;padding:0 15px;display:table;position:relative;background:0 0;outline:0;width:100%;height:50px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;border-bottom:1px solid rgba(0, 0, 0, 0.4)}
+ #trackOptionsFilter ul li a span.fa{color:rgba(0, 0, 0, 0.5);font-size:14px;font-weight:400;}
+ #trackOptionsFilter ul li a.trackoption:hover,#trackOptionsFilter ul li>a.hover{background:#fff;color: rgb(255, 87, 133);
+font-weight: bold;       
+padding-right: 0.8rem;
+padding-left: 0.8rem;}
+#trackOptionsFilter ul li a:hover span.fa{background:#fff;color: rgb(255, 87, 133);
+font-weight: bold;       
+}
+#trackOptionsFilter ul li>a.tracktitle,
+#trackOptionsFilter ul li>a.tracktitle:hover{text-align: center; background: rgba(0, 0, 0, 0.2);color:#fff;font-weight: bold;       
+    padding-right: 0.8rem;
+    padding-left: 0.8rem;}
+#trackOptionsFilter ul li i.border{width:90%;height:1px;position:absolute;bottom:0;left:5%;display:block;background:#E1E1E1}
+#trackOptionsFilter ul li a.selected i.border,
+#trackOptionsFilter ul li a:hover i.border{background:0 0}
+#trackOptionsFilter ul li a span.ctitle{display:table-cell;vertical-align:middle}
+#trackOptionsFilter ul li a{font-size:13px;letter-spacing:-.01em;line-height:1.1em}
+
+/* Ends css for money tracker options page*/
