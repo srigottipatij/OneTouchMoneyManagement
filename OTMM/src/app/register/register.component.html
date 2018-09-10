@@ -1,0 +1,48 @@
+<div class="form-main">
+  <div class="form-heading">
+    <span class="form-title">Registration Form</span>      
+    </div>
+  <form class="login-form" #rgform="ngForm" (ngSubmit)="register(rgform.value)">
+      
+    <div class="login-form-input">
+    <label for="name">Your Name</label>
+    <div class="login-form-inputs">
+      <span class="fa fa-user-o" aria-hidden="true"></span>
+      <input ngModel name="name" id="name" type="text" placeholder="Your Name"  required="">
+    </div>
+  </div>
+
+  <div class="login-form-input">
+    <label for="email">Email</label>
+    <div class="login-form-inputs">
+      <span class="fa fa-email" aria-hidden="true"></span>
+      <input ngModel name="email" id="email" type="email" placeholder="Email" required="">
+    </div>
+  </div>
+
+  <div class="login-form-input">
+    <label for="password">Password</label>
+    <div class="login-form-inputs">
+      <span class="fa fa-key" aria-hidden="true"></span>
+      <input ngModel name="Password" id="password" type="password" placeholder="Password" required>
+    </div>
+  </div>
+
+  <div class="login-form-input">
+    <label for="cpassword">Confirm Password</label>
+    <div class="login-form-inputs">
+      <span class="fa fa-key" aria-hidden="true"></span>
+      <input ngModel name="cpassword" id="cpassword" type="password" placeholder="Confirm Password"  required>
+    </div>
+  </div>
+  
+  <div class="login-form-input">
+    <input id="accept" type="checkbox" value="" required>
+    <label for="accept">
+      <span></span>I Accept to the Terms &amp; Conditions</label>      
+  </div>
+<input type="submit" value="Register">    
+  
+</form>
+</div>
+
