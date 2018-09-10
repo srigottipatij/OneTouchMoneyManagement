@@ -16,10 +16,15 @@ import { OtmmAuth } from './otmm-auth.service';
 import { UserService } from './user.service';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AccountCategoryComponent } from './account-category/account-category.component';
+import { AccountsComponent } from './accounts/accounts.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    AccountCategoryComponent,
+    AccountsComponent,
     HeaderNavbarComponent,
     FooterNavbarComponent,
     HomeComponent,
