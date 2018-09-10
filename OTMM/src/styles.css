@@ -77,14 +77,14 @@ body{
     padding: 7px;
     border: 1pt solid rgb(255, 87, 133); 
     border-bottom: none;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
     
     width: 430px;
 }
 .form-title{
     background: rgb(255, 87, 133);   
-    border-radius: 5px;
+    border-radius: 3px;
     text-align: center;         
     color:#fff;
     font-size: large;
@@ -118,10 +118,9 @@ body{
 justify-content: space-between;
 box-sizing: border-box;
 
-border: 1pt solid rgb(255, 87, 133);
-
-
-
+ border: 1pt solid rgb(255, 87, 133);
+ border-bottom-left-radius: 3px;
+ border-bottom-right-radius: 3px;
 
 }
 

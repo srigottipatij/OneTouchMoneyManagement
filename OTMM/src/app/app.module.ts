@@ -40,9 +40,11 @@ import { AccountsComponent } from './accounts/accounts.component';
     FormsModule,
     RouterModule.forRoot([
       {path:'',component: HomeComponent },
-      {path:'login',component: LoginComponent},
+      {path:'login',component: LoginComponent},            
       {path:'register',component: RegisterComponent},
-      {path:'user/manage-money',component: TrackMoneyMainComponent}
+      {path:'user/manage-money',component: TrackMoneyMainComponent},
+      {path:'accounts',component: AccountsComponent},
+      {path:'account-category',component: AccountCategoryComponent}
     ]),
   ],
   providers: [
