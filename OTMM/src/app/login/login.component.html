@@ -1,26 +1,40 @@
+<div *ngIf="userName" class="form-top-message">Hi {{userName}}, your registration Successful! Please Sign in.</div>><!--used interpolation, eg: {{userName}}-->
 <div class="form-main">
-    <div class="form-heading">
+    
+  <div class="form-heading">
         <span class="form-title">Login Form</span>      
-        </div>
-  <form class="login-form" #lgform="ngForm" (ngSubmit)="login(lgform.value)">
+  </div>
+
+  <form class="login-form" #lgform="ngForm" (ngSubmit)="login(lgform.value)"> <!--template driven form using ngForm-->
+      <div class="danger" *ngIf="!loginStatus && lgform.submitted"><strong>Invalid username and/or password</strong></div>  <!--on submit, asynchronous validation will be performed-->   
   <div class="login-form-input">
     <label for="email">Email</label>
-    <div class="login-form-inputs">
+    <div class="login-form-inputs" [class.ng-invalid]="!email.valid" [class.ng-touched]="email.touched"> <!--used class bindings, eg: [class.ng-touched]="email.touched" -->
       <span class="fa fa-email" aria-hidden="true"></span>
-      <input ngModel name="email" id="email" type="email" placeholder="Email" required="">
+      <input required minlength="8" maxlength="50" email ngModel="{{userEmail}}"  name="email" #email="ngModel" lowercaseInputFormat id="email" type="email" placeholder="Email" credentialscheck/> <!--default value to input field using ngModel and interpollation, eg: ngModel="{{userEmail}}, and also used input formatter", template variables, eg: #email="ngModel", template variable email is assigned with ngModel-->
+    </div>
+    <div *ngIf="email.touched && !email.valid"> <!--displaying validation errors; *ngIf, eg: *ngIf="email.touched && !email.valid"-->
+      <div class="danger" *ngIf="email.errors.required"><strong>Email</strong> is required</div>      
+      <div class="danger" *ngIf="!email.errors.required && email.errors.email"><strong>Email</strong> is not valid</div>     
+      
     </div>
   </div>
 
-  <div class="login-form-input">
-    <label for="password">Password</label>
-    <div class="login-form-inputs">
+  <div class="login-form-input" >  
+    <label for="password">Password</label> 
+    <div class="login-form-inputs" [class.ng-invalid]="!password.valid" [class.ng-touched]="password.touched">
       <span class="fa fa-key" aria-hidden="true"></span>
-      <input ngModel name="password" id="password" type="password" placeholder="Password" required>
+      <input required minlength="8" maxlength="15" ngModel name="password" #password="ngModel" id="password" type="password" placeholder="Password" >
+    </div>
+    <div *ngIf="password.touched && !password.valid">
+      <div class="danger" *ngIf="password.errors.required"><strong>Password</strong> is required</div>
+      <div class="danger" *ngIf="password.errors.minlength"><strong>Password</strong> should contain atleast 8 characters</div>     
     </div>
   </div>
-
-  <input type="submit" value="Login">    
-  
+<div>
+  <input type="submit" value="Login" [disabled]="!lgform.valid">    <!--button disabling unless all form values are correct, [disabled]="!lgform.valid"--> 
+  <BR><BR>New User? <a class="signup" (click)="setHeaderLinks('signup')" [style.display]="contents" routerLink="/register">Sign up</a>     <!--event binding eg: (click)="setHeaderLinks('signup')",  style binding, eg: [style.display]="contents"-->
+</div>
 </form>
 </div>
 

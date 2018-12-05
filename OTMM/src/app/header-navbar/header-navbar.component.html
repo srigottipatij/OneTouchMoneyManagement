@@ -1,30 +1,44 @@
 <nav class="navbar navbar-expand-md navbar-light otmm-navbar fixed-top ">
-  <img src="../../assets/otmm_plant_logo5.png" style="padding-right: 25px;" />
-  <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>-->
+  <a class="nav-link" routerLink=""><img src="../../assets/otmm_plant_logo5.png" style="padding-right: 25px;" /></a>
   
   <div class="collapse navbar-collapse"  style="padding-right: 30px;">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item" routerLinkActive="active"> 
+        <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a> 
       </li>
       
-      <li class="nav-item">
-           <a class="nav-link" routerLink="/user/manage-money">Manage Money<span class="sr-only">(current)</span></a>
+      <li class="nav-item" routerLinkActive="active" *ngIf="otmmAuth.isLoggedIn()"> <!--*ngIf, eg: *ngIf="otmmAuth.isLoggedIn()"--> <!--routerLinkActive, eg: routerLinkActive="active", -->
+           <a class="nav-link" routerLink="/user/manage-money">Manage Money<span class="sr-only">(current)</span></a> <!--routerLink, eg: routerLink="/user/manage-money"-->
         </li>
 
-      <li class="nav-item">
-        <a class="nav-link">About us <span class="sr-only">(current)</span></a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/about/us">About us <span class="sr-only">(current)</span></a>
       </li>
       
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success " type="button" routerLink="/login">Sign In</button>
-      <button class="btn btn-outline-success " type="button" routerLink="/register">Sign Up</button>
+      <ul class="navbar-nav mr-auto">
+          
+      <li *ngIf="!otmmAuth.isLoggedIn()"><button class="btn btn-outline-success"  routerLinkActive="active" type="button" routerLink="/login">Sign In</button>&nbsp;</li>
+      <li *ngIf="!otmmAuth.isLoggedIn()"><button class="btn btn-outline-success" routerLinkActive="active" type="button" routerLink="/register">Sign Up</button>&nbsp;</li>
+      <li *ngIf="otmmAuth.isLoggedIn()">
+        <div style="         
+        display: block;    
+        background-color: rgb(179, 230, 202);
+        border-radius: 50px;        
+        height: fit-content;
+        width: fit-content;
+        ">
+        <div ><a class="name-link" href="" >{{otmmAuth.currentUser}}</a></div>        
+        <div ><a class="name-link" routerLinkActive="active" (click)="otmmAuth.logout()" routerLink="/login">Logout</a></div> <!--event binding, eg: (click)="otmmAuth.logout()"-->
+      </div>
+      </li>      
+      
+    </ul>
     </form>
   </div>      
 </nav>
+<hr class="main-hr">
 <hr class="main-hr">
 
