@@ -63,7 +63,7 @@ export let InjectorInstance: Injector; //my code
       {path:'user/expenses',component: ExpensesComponent,canActivate: [AuthGuard]}, //protecting routes
       {path:'accounts',component: AccountsComponent},
       {path:'account-category',component: AccountCategoryComponent},
-      {path:'**',component: InvalidPageComponent }      //Invalid Page
+      {path:'**',component: InvalidPageComponent }      //Invalid Page routing when other than the above urls are given
     ]),
   ],
   providers: [
