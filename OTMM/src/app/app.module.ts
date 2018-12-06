@@ -59,11 +59,11 @@ export let InjectorInstance: Injector; //my code
       {path:'login',component: LoginComponent},                        
       {path:'register',component: RegisterComponent},
       //{path:'user/:id',component: TrackMoneyMainComponent},
-      {path:'user/manage-money',component: TrackMoneyMainComponent,canActivate: [AuthGuard]},
-      {path:'user/expenses',component: ExpensesComponent,canActivate: [AuthGuard]},
+      {path:'user/manage-money',component: TrackMoneyMainComponent,canActivate: [AuthGuard]}, //protecting routes
+      {path:'user/expenses',component: ExpensesComponent,canActivate: [AuthGuard]}, //protecting routes
       {path:'accounts',component: AccountsComponent},
       {path:'account-category',component: AccountCategoryComponent},
-      {path:'**',component: InvalidPageComponent }      
+      {path:'**',component: InvalidPageComponent }      //Invalid Page
     ]),
   ],
   providers: [
@@ -77,7 +77,7 @@ export let InjectorInstance: Injector; //my code
 })
 
 export class AppModule { 
-  constructor(private injector: Injector) //my code
+  constructor(private injector: Injector) //my code for injecting an instance
   {
     InjectorInstance = this.injector;
   }
