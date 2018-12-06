@@ -2,47 +2,72 @@
   <div class="form-heading">
     <span class="form-title">Registration Form</span>      
     </div>
-  <form class="login-form" #rgform="ngForm" (ngSubmit)="register(rgform.value)">
+  <form [formGroup]="signupform" class="login-form" (ngSubmit)="register(signupform.value)"> <!--reactive form declaration, eg: [formGroup]="signupform", the name of form must match with that of the controller-->
       
     <div class="login-form-input">
-    <label for="name">Your Name</label>
+    <label for="name">Your Name*</label>
     <div class="login-form-inputs">
       <span class="fa fa-user-o" aria-hidden="true"></span>
-      <input ngModel name="name" id="name" type="text" placeholder="Your Name"  required="">
+      <input  formControlName="name"  name="name" id="name" type="text"  placeholder="Your Name"> <!--making an input text field as formcontrol using formControlName when using reactive forms-->
+      
     </div>
+    <div *ngIf="signupform.get('name').touched && signupform.get('name').invalid"> <!-- reactive form validations and *ngIf-->
+      <div class="danger" *ngIf="signupform.get('name').errors.required"> 
+        <i class="fa fa-warning" style="color:red"></i> Name is required</div>     
+      <div class="danger" *ngIf="signupform.get('name').errors.minlength"><i class="fa fa-warning" style="color:red"></i> Name should contain atleast 8 characters</div>     
+      <div class="danger" *ngIf="signupform.get('name').errors.maxlength"><i class="fa fa-warning" style="color:red"></i> Name should not exceed 50 characters</div>     
+    </div> 
   </div>
 
   <div class="login-form-input">
-    <label for="email">Email</label>
+    <label for="email">Email*</label>
     <div class="login-form-inputs">
       <span class="fa fa-email" aria-hidden="true"></span>
-      <input ngModel name="email" id="email" type="email" placeholder="Email" required="">
+      <input formControlName="email" name="email" id="email" type="email" placeholder="Email" lowercaseInputFormat> <!--inputformmatter, for eg: lowercaseInputFormat -->
+    </div>    
+    <div *ngIf="email.touched && email.invalid">
+      <div class="danger" *ngIf="email.errors.required"><i class="fa fa-warning" style="color:red"></i> Email is required</div>     
+      <div class="danger" *ngIf="email.errors.minlength"><i class="fa fa-warning" style="color:red"></i> Email should contain atleast {{email.errors.minlength.requiredLength}} characters</div>   <!--displaying dynamically the requiredLength value instead of hardcoding --> 
+      <div class="danger" *ngIf="email.errors.maxlength"><i class="fa fa-warning" style="color:red"></i> Email should not exceed 50 characters</div>     
+      <div class="danger" *ngIf="email.errors.email"><i class="fa fa-warning" style="color:red"></i> Please enter correct email id</div>     
+      <div class="danger" *ngIf="email.errors.uniqueUser"><i class="fa fa-warning" style="color:red"></i> User Already Exist!!</div>      <!--asynchronous validation error checking and displaying error message-->
+    </div> 
+
+  </div>
+<div formGroupName="passwordgroup"> <!--subform group is declared using formGroupName in reactive forms-->
+  <div class="login-form-input">
+    <label for="password">Password*</label>
+    <div class="login-form-inputs">
+      <span class="fa fa-key" aria-hidden="true"></span>
+      <input formControlName="password" name="password" id="password" type="password" placeholder="Password">
+    </div>
+    <div *ngIf="password.touched && password.invalid">
+      <div class="danger" *ngIf="password.errors.required"><i class="fa fa-warning" style="color:red"></i> Password is required</div>     
+      <div class="danger" *ngIf="password.errors.minlength"><i class="fa fa-warning" style="color:red"></i> Password should contain atleast 8 characters</div>     
+      <div class="danger" *ngIf="password.errors.maxlength"><i class="fa fa-warning" style="color:red"></i> Password should not exceed 50 characters</div>       
     </div>
   </div>
 
   <div class="login-form-input">
-    <label for="password">Password</label>
+    <label for="cpassword">Confirm Password*</label>
     <div class="login-form-inputs">
       <span class="fa fa-key" aria-hidden="true"></span>
-      <input ngModel name="Password" id="password" type="password" placeholder="Password" required>
+      <input formControlName="cpassword" name="cpassword" id="cpassword" type="password" placeholder="Confirm Password">
     </div>
-  </div>
-
-  <div class="login-form-input">
-    <label for="cpassword">Confirm Password</label>
-    <div class="login-form-inputs">
-      <span class="fa fa-key" aria-hidden="true"></span>
-      <input ngModel name="cpassword" id="cpassword" type="password" placeholder="Confirm Password"  required>
+    <div *ngIf="passwordgroup.get('cpassword').touched && passwordgroup.get('cpassword').invalid">
+      <div class="danger" *ngIf="passwordgroup.get('cpassword').errors.required"><i class="fa fa-warning" style="color:red"></i> Confirm Password is required</div>                 
     </div>
+    <div class="danger" *ngIf="passwordgroup.hasError('confirmPassword')"><i class="fa fa-warning" style="color:red"></i>Confirm Password shall be same as password</div>   <!--checking for group validation, and displaying error message when validation fails-->              
   </div>
-  
+</div>
   <div class="login-form-input">
     <input id="accept" type="checkbox" value="" required>
     <label for="accept">
       <span></span>I Accept to the Terms &amp; Conditions</label>      
   </div>
-<input type="submit" value="Register">    
+<input type="submit" [disabled]="!signupform.valid" value="Register">    <!--disabling the register button, when form is not valid eg: [disabled]="!signupform.valid" -->
   
 </form>
 </div>
+
 
